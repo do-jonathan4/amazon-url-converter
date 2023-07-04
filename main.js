@@ -1,46 +1,12 @@
-const [reverse, asc, copy, paste, clear] = document.querySelectorAll('button')
-const txtarea = document.querySelector('textarea')
-const alert = document.querySelector('.alert')
+const [paste, convert, go] = document.querySelectorAll('button')
+const [originalURL, newURL] = document.querySelectorAll('input')
 
-reverse.addEventListener('click', () => {
-    const arr = txtarea.value.split("").reverse()
-    let str = ''
-    arr.forEach(x => str += x)
-    txtarea.value = str
-})
+convert.addEventListener('click', e => {
+    const str = originalURL.value
+    const vjk = str.lastIndexOf('jk=')
+    const advn = str.lastIndexOf('&advn=')
 
-asc.addEventListener('click', () => {
-    let str = ''
-    if (Number(txtarea.value.replaceAll(' ', ''))) {
-        //convert to letter
-        const arr = txtarea.value.split(" ")
-        str = String.fromCodePoint(...arr)
-    } else {
-        //convert to number
-        str = txtarea.value.split("")
-        .map(x => x.charCodeAt())
-        .toString()
-        .replaceAll(',', ' ')
-    }
-    txtarea.value = str
-})
-
-copy.addEventListener('click', () => {
-    navigator.clipboard.writeText(txtarea.value)
-})
-copy.addEventListener('mousedown', () => {
-    alert.classList.remove('d-none')
-})
-copy.addEventListener('mouseup', () => {
-    setTimeout(() => alert.classList.add('d-none'), 1000)
-})
-
-paste.addEventListener('click', () => {
-    navigator.clipboard.readText()
-    .then(x => txtarea.value = x)
-})
-
-clear.addEventListener('click', () => {
-    txtarea.value = ''
+    newURL.value = "https://www.indeed.com/viewjob?" + str.slice(vjk, advn)
+    go.parentElement.href = newURL.value
 })
 
