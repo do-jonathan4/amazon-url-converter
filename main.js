@@ -9,8 +9,12 @@ convert.addEventListener('click', e => {
     const advn = () => {
         if (str.lastIndexOf('&advn=') !== -1) {
             return str.lastIndexOf('&advn=')
-        } else {
+        } else if (str.lastIndexOf('&q=') !== -1) {
             return str.lastIndexOf('&q=')
+        } else if (str.lastIndexOf('&start') !== -1) {
+            return str.lastIndexOf('&start')
+        } else {
+            return originalURL.value.length
         }
     }
     newURL.value = "https://www.indeed.com/viewjob?" + str.slice(vjk, advn())
