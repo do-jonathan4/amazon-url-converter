@@ -1,7 +1,7 @@
 # Indeed URL Converter
 Encoder app where you can reverse text or convert to ASCII. Or both!
 
-### [Live Demo]https://do-jonathan4.github.io/indeed-url-converter/
+### [Live Demo](https://do-jonathan4.github.io/indeed-url-converter/)
 
 #### Convert messy Indeed links
 ![image](https://github.com/do-jonathan4/indeed-url-converter/assets/67031107/3c9f35ef-a2aa-484a-bd90-26a1e207d1f9)
