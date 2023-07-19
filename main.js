@@ -5,10 +5,10 @@ window.onload = () => originalURL.focus()
 
 convert.addEventListener('click', e => {
     const str = originalURL.value
-    if (str === '' || !str.includes('indeed')) return
+    if (str === '' || !str.includes('amazon')) return
 
-    const vjk = str.lastIndexOf('jk=')
-    newURL.value = "https://www.indeed.com/viewjob?" + str.slice(vjk, vjk+19)
+    const dp = str.lastIndexOf('dp/')
+    newURL.value = "https://www.amazon.com/" + str.slice(dp, dp+13)
 
     go.parentElement.href = newURL.value
     go.parentElement.target = "_blank"
